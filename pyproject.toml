@@ -1,7 +1,7 @@
 [project]
 name = "codemasters"
 version = "0.1.0"
-description = "Add your description here"
+description = "CodeMasters bootcamp course material — Fundamentals and Advanced programs"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
