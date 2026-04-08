@@ -4,4 +4,6 @@ version = "0.1.0"
 description = "CodeMasters bootcamp course material — Fundamentals and Advanced programs"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "marimo>=0.23.0",
+]
