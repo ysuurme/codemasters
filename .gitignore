@@ -3,14 +3,13 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# ── Virtual environments ───────────────────────────────────────────────────────
+# ── Environment variables ──────────────────────────────────────────────────────
 .venv/
 venv/
 env/
-
-# ── Environment variables ──────────────────────────────────────────────────────
 .env
 .envrc
+codemasters.code-workspace
 
 # ── Package / build artifacts ─────────────────────────────────────────────────
 dist/
