@@ -1,25 +1,53 @@
 # Week 01 — Assignment
 
-Small tasks to practice running code and editing a script.
+Your setup is working — now make the program your own!
+Open `scripts/hello_world.py` and complete the tasks below.
 
-1) Personalize the greeting
-- Open `scripts/hello_world.py` and change the greeting text inside `greet()` to something personal or creative (for example: "Hey <name>, great to see you!").
+---
 
-2) Add a second function
-- Add a new function called `farewell(name)` that returns a short goodbye message, e.g. "Goodbye, <name> — see you soon!". Call it after the greeting in the `if __name__ == "__main__"` block.
+## Task 1 — Personalise the greeting
 
-3) Optional stretch
-- Add your favourite emoji to the greeting or farewell output.
+Change the text returned by `greet()` to something more creative.
 
-Hints
-- No classes needed — just add another small function.
-- Use only the Python standard library (no extra imports).
-- Run the script to see your changes: `python scripts/hello_world.py`.
+For example, instead of `"Hello, {name}! 🎉"` you could write:
 
-When you're done, commit your changes with a clear, short commit message (for example: "Personalize greeting and add farewell").
-# Week 1 Assignment — Hello World
+```python
+return f"Hey {name}, so happy you're here!"
+```
 
-Assignment instructions will be added here.
+Run the script after your change to make sure it still works:
 
-## How to submit
-<!-- To be filled in by instructor -->
+```sh
+python scripts/hello_world.py
+```
+
+---
+
+## Task 2 — Add a farewell function
+
+Add a second function called `farewell` that returns a short goodbye message.
+Then call it in the `if __name__ == "__main__"` block, after the greeting.
+
+Here is a starting point:
+
+```python
+def farewell(name: str) -> str:
+    return f"Goodbye, {name} — see you soon!"
+```
+
+---
+
+## Stretch goal (optional) ⭐
+
+Add your favourite emoji somewhere in the greeting or farewell output.
+There are no rules — make it fun!
+
+---
+
+## Hints
+
+- You only need functions — no classes required.
+- Use only built-in Python — no extra imports needed.
+- Run your script after every change so you can see the result straight away.
+- When you are happy with your changes, commit them with a short, clear message,
+  for example: `"Week 01: personalised greeting and added farewell"`.

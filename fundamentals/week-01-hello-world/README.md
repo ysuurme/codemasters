@@ -1,58 +1,50 @@
 # Week 01 — Hello, World!
 
-Welcome to Week 1 of the CodeMasters Fundamentals Program. This week proves that your environment is set up correctly and introduces the most important first step: making your computer run Python code.
-
-What you'll learn
-- What Python is and how it runs code
-- How to print text to the console with `print()`
-- How to write a tiny function and run it both interactively and as a script
-
-Run the Marimo notebook (interactive)
-
-```sh
-marimo run notebooks/hello_world.py
-```
-
-Run the standalone script
-
-```sh
-python scripts/hello_world.py
-```
-
-Encouragement
-
-This is your first proof that the setup works — you just made the computer run your code. Celebrate it! 🎉 If something doesn't run, don't worry: follow the error message, ask an instructor, or open an issue and we'll help.
-# Week 1 — Hello World
-
-Welcome to your first week of programming!
-
-This week you will write and run your very first Python program.
-By the end of this week you will know how to make the computer display a message.
+Welcome to your very first week of the CodeMasters Fundamentals Program!
+This week is all about one thing: **making your computer run Python code for the first time.**
 
 ---
 
 ## What you will learn
 
-- What Python is and why we use it
-- How to run a Python script
-- How to use `print()` to show output
-- What a comment is and why to use it
+- What Python is and why people use it
+- How to print text to the screen with `print()`
+- How to write a tiny function and call it
+- That your environment is set up and working — congratulations!
 
 ---
 
-## How to get started
+## How to run the materials
 
-**Option 1 — Interactive notebook (recommended for beginners)**
-```
-marimo run notebooks/01_hello_world.py
-```
-This opens a visual, step-by-step guide in your browser.
+**Option 1 — Marimo VS Code extension (easiest)**
+Install the [Marimo extension](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
+in VS Code, then open this file in VS Code:
 
-**Option 2 — Script**
-Open `scripts/01_hello_world.py` in your editor and press **F5** to run it.
+```
+fundamentals/week-01-hello-world/notebooks/hello_world.py
+```
+
+The extension renders it as an interactive notebook directly inside your editor — no terminal needed.
+
+**Option 2 — Terminal (Marimo in the browser)**
+Run this from the **project root**:
+
+```sh
+marimo run fundamentals/week-01-hello-world/notebooks/hello_world.py
+```
+
+**Option 3 — Plain script**
+Run this from the **project root**:
+
+```sh
+python fundamentals/week-01-hello-world/scripts/hello_world.py
+```
 
 ---
 
-## Assignment
+## You did it!
 
-Go to the `assignments/` folder and read `README.md` for this week's assignment.
+If the script printed a greeting — your setup works. That's the whole goal of Week 1.
+Every program you will ever write starts here. Take a moment to celebrate, then head to
+the `assignments/` folder to make it your own. If something didn't run, ask an instructor
+or open an issue and we'll help you sort it out.

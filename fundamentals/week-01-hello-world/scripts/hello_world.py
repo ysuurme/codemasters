@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""Minimal hello world script for beginners.
+"""Week 01 — Hello, World!
 
-This script defines a single `greet` function, asks the user for their name,
-and prints the returned greeting. It's intentionally tiny so it is easy to read.
+Run this script to see your first Python program in action.
+    python scripts/hello_world.py
 """
 
-def greet(name: str) -> str:
-    """Return a friendly greeting for `name`.
 
-    Keep this function tiny and clear for beginners.
-    """
+def greet(name: str) -> str:
+    """Return a personalised greeting for the given name."""
+    # If the user didn't type anything, fall back to a friendly default.
     if not name:
         name = "there"
     return f"Hello, {name}! 🎉"
 
 
 if __name__ == "__main__":
-    # Ask the participant for their name using the built-in input().
-    user_name = input("What's your name? ")
-    # Call the small greet function and print the result.
+    # Ask the participant to type their name and store it in a variable.
+    user_name = input("What is your name? ")
+
+    # Pass the name to our greet function and print what it returns.
     print(greet(user_name))

@@ -1,121 +1,150 @@
 import marimo
 
-__generated_with = "0.23.1"
+__generated_with = "0.10.0"
 app = marimo.App()
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    # Hello World — Week 01
+    mo.md(
+        r"""
+        # Hello, World! 🌍
 
-    Welcome to the first notebook. This one introduces basic Python I/O, simple variables, and an interactive exercise for beginners.
-    """)
+        Welcome to Week 1 of the CodeMasters Fundamentals Program!
+
+        You are about to run your very first Python program. By the end of this
+        notebook you will have made the computer greet you by name — interactively,
+        right here in your browser.
+        """
+    )
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ## Learning Objectives
+    mo.md(
+        r"""
+        ## What is Python?
 
-    - Understand how to print text to the console.
-    - Assign and use variables.
-    - Try a short exercise at the end.
-    """)
+        Python is a programming language — a way of giving instructions to a computer.
+        It was designed to be as easy to read as plain English, which makes it a great
+        first language to learn.
+
+        When you write Python code, you are writing a recipe. The computer follows the
+        recipe step by step, from top to bottom.
+        """
+    )
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ## Prerequisites
+    mo.md(
+        r"""
+        ## The `print()` function
 
-    You only need a Python interpreter. If running this as a Marimo notebook, press Run on the code cells or use `marimo run filename.py`.
-    """)
+        The most important tool in a beginner's toolkit is `print()`.
+        It tells Python to display something on the screen.
+
+        Run the cell below to see it in action!
+        """
+    )
     return
 
 
 @app.cell
 def _():
-    # Print a simple message
-    print('Hello, world!')
-
-    # You can change the text above and re-run the cell to see different output.
+    print("Hello, World!")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ## Your Name (editable variable)
+    mo.md(
+        r"""
+        You just ran your first Python program. 🎉
 
-    This cell used to prompt with `input()` but some notebook frontends handle interactive prompts unreliably.
-    Instead, edit the `user_name` variable in the code cell below to set your name, then run the cell.
-    (Tip: replace the placeholder with your own name.)
-    """)
+        `print("Hello, World!")` tells Python:
+        > "Show the text `Hello, World!` on the screen."
+
+        The text inside the quotes is called a **string** — programmers use that word
+        for any piece of text.
+        """
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+        ## Functions — tiny helpers you can reuse
+
+        A **function** is a small, named block of code that does one job.
+        You write it once and can call it as many times as you like.
+
+        Below is a function called `greet`. It takes a name and gives back a
+        personalised greeting.
+        """
+    )
     return
 
 
 @app.cell
 def _():
-    # Define your name here (edit this value)
-    user_name = 'Your Name'
-    print('Nice to meet you, ' + user_name + '!')
-    return
+    def greet(name: str) -> str:
+        """Return a friendly greeting for the given name."""
+        return f"Hello, {name}! 🎉"
+
+    # Try calling greet right now with a fixed name:
+    print(greet("World"))
+    return (greet,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ## Variables
+    mo.md(
+        r"""
+        ## Try it yourself — type your name!
 
-    Variables let you store values to use later. Below is a short example showing numbers and strings.
-    """)
+        Use the box below to enter your name.
+        The greeting will update automatically as you type.
+        """
+    )
     return
 
 
 @app.cell
-def _(age):
-    # Variables example — edit the values below to try different outputs
-    greeting = 'Hello'
-    example_name = 'Ada'  # change this to your name
-    example_age = 25  # change this number to your age
-    print(greeting + ', ' + example_name + '!')
-    print('In two years you will be', age + 2)
-    return
-
-
-@app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ## Exercises
-
-    1. Modify the print message to include your favorite hobby.
-    2. Ask the user for their age and print what year they will turn 100.
-    3. (Optional) Combine `input()` and variables to make a short interactive dialog.
-    """)
-    return
+    name_input = mo.ui.text(placeholder="Type your name here…", label="Your name")
+    name_input
+    return (name_input,)
 
 
 @app.cell
-def _():
-    # Example solution for exercise 2 (no input).
-    # Edit the `age` variable below to your age, then run the cell.
-    age = 25
-    current_year = 2026
-    year_when_100 = current_year + (100 - age)
-    print(f'You will turn 100 in the year {year_when_100}.')
-    return (age,)
+def _(greet, mo, name_input):
+    # Use the value from the text box; fall back to "there" when it is empty.
+    display_name = name_input.value if name_input.value else "there"
+    mo.md(f"## {greet(display_name)}")
+    return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ---
+    mo.md(
+        r"""
+        ---
 
-    If you finished the exercises, great job! Move on to the Week 02 materials when you're ready.
-    """)
+        Amazing work! You have just:
+
+        - Used `print()` to display text
+        - Read and called a function (`greet`)
+        - Interacted with live Python code in your browser
+
+        When you are ready, head to the `assignments/` folder and make the greeting
+        your own. See you in Week 2! 🚀
+        """
+    )
     return
 
 
