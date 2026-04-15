@@ -1,3 +1,27 @@
+# Week 01 — Hello, World!
+
+Welcome to Week 1 of the CodeMasters Fundamentals Program. This week proves that your environment is set up correctly and introduces the most important first step: making your computer run Python code.
+
+What you'll learn
+- What Python is and how it runs code
+- How to print text to the console with `print()`
+- How to write a tiny function and run it both interactively and as a script
+
+Run the Marimo notebook (interactive)
+
+```sh
+marimo run notebooks/hello_world.py
+```
+
+Run the standalone script
+
+```sh
+python scripts/hello_world.py
+```
+
+Encouragement
+
+This is your first proof that the setup works — you just made the computer run your code. Celebrate it! 🎉 If something doesn't run, don't worry: follow the error message, ask an instructor, or open an issue and we'll help.
 # Week 1 — Hello World
 
 Welcome to your first week of programming!
