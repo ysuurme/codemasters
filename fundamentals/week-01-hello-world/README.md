@@ -21,7 +21,7 @@ Install the [Marimo extension](https://marketplace.visualstudio.com/items?itemNa
 in VS Code, then open this file in VS Code:
 
 ```
-fundamentals/week-01-hello-world/notebooks/hello_world.py
+fundamentals/week-01-hello-world/notebooks/nb_hello_world.py
 ```
 
 The extension renders it as an interactive notebook directly inside your editor — no terminal needed.
@@ -30,7 +30,7 @@ The extension renders it as an interactive notebook directly inside your editor 
 Run this from the **project root**:
 
 ```sh
-marimo run fundamentals/week-01-hello-world/notebooks/hello_world.py
+marimo run fundamentals/week-01-hello-world/notebooks/nb_hello_world.py
 ```
 
 **Option 3 — Plain script**
