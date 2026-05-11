@@ -1,4 +1,4 @@
-# Week 6 — Agents and AI — Assignment
+# Week 6 — Advanced functions — Assignment
 
 Assignment instructions will be added here.
 
