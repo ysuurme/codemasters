@@ -16,7 +16,7 @@ No prior experience needed — we start from zero and build up step by step.
 | 3 | Variables and Console Input | [week-03-variables-and-input/](week-03-variables-and-input/) |
 | 4 | Conditionals and Control Flow | [week-04-conditionals-and-control-flow/](week-04-conditionals-and-control-flow/) |
 | 5 | Functions | [week-05-functions/](week-05-functions/) |
-| 6 | Agents and AI | [week-06-agents-and-ai/](week-06-agents-and-ai/) |
+| 6 | Advanced Functions and Dictionaries | [week-06-advanced functions/](week-06-advanced%20functions/) |
 | 7 | Loops | [week-07-loops/](week-07-loops/) |
 | 8 | Classes and AI | [week-08-classes-and-ai/](week-08-classes-and-ai/) |
 | 9–10 | Creating a Program | [week-09-10-creating-a-program/](week-09-10-creating-a-program/) |
