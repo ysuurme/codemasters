@@ -14,9 +14,11 @@ def _(mo):
 
         Until now your programs ran straight from top to bottom. This week
         they learn to **decide** what to do (`if` / `elif` / `else`) and to
-        **repeat** work (`while`, `for`).
+        **repeat** work (`while` loops, `break`, `continue`).
 
         Together these are called **flow control**.
+
+        > `for` loops arrive next week, paired with lists.
         """
     )
     return
@@ -370,63 +372,17 @@ def _():
     return
 
 
-# ── for + range() ────────────────────────────────────────────────────────────
+# ── Putting it together — guess the secret ───────────────────────────────────
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(
         r"""
-        ## `for` loops with `range()`
+        ## Putting it together — guess the secret
 
-        Use a `for` loop when you know **how many times** to repeat.
-
-        | Call | Produces |
-        |------|----------|
-        | `range(stop)` | `0, 1, ..., stop - 1` |
-        | `range(start, stop)` | `start, start + 1, ..., stop - 1` |
-        | `range(start, stop, step)` | `start, start + step, ...` |
-
-        Adjust the sliders below to see exactly what `range()` produces.
-        """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    start_input = mo.ui.number(value=0,  start=-10, stop=20, label="start")
-    stop_input  = mo.ui.number(value=10, start=-10, stop=30, label="stop")
-    step_input  = mo.ui.number(value=2,  start=-5,  stop=10, label="step")
-    mo.vstack([start_input, stop_input, step_input])
-    return (start_input, step_input, stop_input)
-
-
-@app.cell
-def _(mo, start_input, step_input, stop_input):
-    step = step_input.value or 1            # step of 0 would loop forever
-    values = list(range(start_input.value, stop_input.value, step))
-    mo.md(
-        f"""
-        `range({start_input.value}, {stop_input.value}, {step})` →
-        **`{values}`**
-
-        That's **{len(values)}** value(s).
-        """
-    )
-    return
-
-
-# ── Putting it together — weekly outfit advice ───────────────────────────────
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(
-        r"""
-        ## Putting it together — weekly outfit advice
-
-        A tiny decision tree that uses nearly every feature from this week:
-        a `for` loop over the forecast, an `if/elif/else` chain inside,
-        comparisons and boolean operators in the conditions.
+        A tiny number game that uses nearly every feature from this week:
+        a `while True` loop, an `if/elif/else` chain, comparisons, and a
+        `break` to leave the loop cleanly.
         """
     )
     return
@@ -434,28 +390,27 @@ def _(mo):
 
 @app.cell
 def _():
-    forecast = [
-        ("Mon",  6, True),
-        ("Tue", 14, False),
-        ("Wed",  9, True),
-        ("Thu", 22, False),
-        ("Fri", 28, False),
-        ("Sat", 18, True),
-        ("Sun", 12, False),
-    ]
+    secret        = 7
+    max_attempts  = 4
+    demo_guesses  = [3, 10, 7]    # pretending the user types these
 
-    for day, temp_c, raining in forecast:
-        if temp_c >= 25:
-            tip = "T-shirt + sunscreen"
-        elif temp_c >= 15 and not raining:
-            tip = "Light jacket"
-        elif raining and temp_c < 15:
-            tip = "Coat + umbrella"
-        elif raining:
-            tip = "Umbrella"
+    attempt = 0
+    while True:
+        guess = demo_guesses[attempt]
+        attempt = attempt + 1
+        print(f"  attempt {attempt}: guess = {guess}")
+
+        if guess == secret:
+            print(f"  ✓ correct in {attempt} attempts!")
+            break
+        elif guess < secret:
+            print("    too low")
         else:
-            tip = "Warm sweater"
-        print(f"  {day}: {temp_c:>2}°C, rain={raining!s:<5} → {tip}")
+            print("    too high")
+
+        if attempt >= max_attempts:
+            print(f"  ✗ out of tries — the secret was {secret}")
+            break
     return
 
 
@@ -477,10 +432,11 @@ def _(mo):
         - **Truthy / falsy** — tidy conditions like `if name:`
         - **`while` loops** — repeat until a condition becomes False
         - **`break` / `continue`** — leave or skip an iteration
-        - **`for` + `range()`** — bounded repetition; `start`, `stop`, `step`
 
         Head to the `assignments/` folder for a **traffic-light advisor** that
         practises all of this. 🚦
+
+        > Next week: `for` loops and iteration — the natural way to walk a list.
         """
     )
     return

@@ -71,9 +71,9 @@ codemasters/
 │   ├── week-02-python-syntax/
 │   ├── week-03-variables-and-input/
 │   ├── week-04-conditionals-and-control-flow/
-│   ├── week-05-functions/
-│   ├── week-06-agents-and-ai/
-│   ├── week-07-loops/
+│   ├── week-05-loops-and-iteration/
+│   ├── week-06-functions/
+│   ├── week-07-dictionaries/
 │   ├── week-08-classes-and-ai/
 │   └── week-09-10-creating-a-program/
 │

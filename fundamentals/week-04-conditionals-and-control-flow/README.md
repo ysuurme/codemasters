@@ -1,7 +1,10 @@
 # Week 04 — Conditionals and Control Flow
 
-This week your programs learn to **decide** what to do and to **repeat** work.
-Together these are called **flow control**.
+This week your programs learn to **decide** what to do and to **repeat** work
+with `while` loops. Together these are called **flow control**.
+
+> `for` loops are introduced next week (Week 5) — paired with lists, where
+> they feel most natural.
 
 ---
 
@@ -15,10 +18,6 @@ Together these are called **flow control**.
 - **Truthy / falsy** — `if name:` is the same as `if name != "":`
 - **`while` loops** — repeat until a condition becomes False
 - **`break`** and **`continue`** — leave a loop or skip an iteration
-- **`for` + `range()`** — bounded repetition, `range(start, stop, step)`
-
-> Loops are introduced here so you can use them in Week 5.
-> Week 7 covers loops in more depth.
 
 ---
 
@@ -49,4 +48,4 @@ python fundamentals/week-04-conditionals-and-control-flow/scripts/conditionals_a
 
 Head to the `assignments/` folder for one practical assignment — a
 **traffic light advisor** that ties booleans, comparisons, `if/elif/else`,
-boolean operators, and loops together.
+boolean operators, and `while` loops together.

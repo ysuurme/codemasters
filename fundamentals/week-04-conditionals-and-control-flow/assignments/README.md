@@ -19,7 +19,7 @@ a junction. Each step adds a new feature using one of this week's topics.
 | 2 | Print "STOP" or "GO" based on the light | `if` / `else`, `==` |
 | 3 | Add the yellow light and an "Unknown" fallback | `elif`, multi-way branching |
 | 4 | Warn when a pedestrian in a hurry crosses on yellow | `and`, boolean combinations |
-| 5 | Loop a cycle of lights and print advice for each | `for` + list |
+| 5 | Walk a cycle of lights with `while` and an index, printing advice for each | `while` + index, `len()` |
 | 6 | Count green lights in a row until the first non-green | `while True`, `break` |
 | 7 | Ask the user for the colour and pedestrian status with `input()` | `input()`, full decision tree |
 

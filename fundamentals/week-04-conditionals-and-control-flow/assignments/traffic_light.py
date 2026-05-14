@@ -3,7 +3,7 @@
 
 Build a small advisor that tells you what to do at a traffic light.
 Each step adds a feature that uses one of this week's topics: booleans,
-comparisons, boolean operators, if/elif/else, while, and for/range.
+comparisons, boolean operators, if/elif/else, and while loops.
 
 Work through the steps one by one — uncomment each block, run the script,
 and check the output before moving on.
@@ -71,21 +71,28 @@ Run with:
 #     print("Safe enough")
 
 
-# ── Step 5: Loop a sequence of lights with a for-loop ────────────────────────
-# A traffic light cycles. Loop over this list and print the advice for each
-# light using your if/elif/else from Step 3.
+# ── Step 5: Walk a cycle of lights with a while loop ─────────────────────────
+# A traffic light cycles. Walk this list one item at a time using an INDEX
+# variable `i` and a `while` loop, and print the advice for each light using
+# your if/elif/else from Step 3.
+#
+# (Next week you'll meet `for` loops, which make iterating a list much
+# shorter. For now, the index pattern is good practice for `while`.)
 
 # cycle = ["red", "red", "green", "green", "yellow", "red"]
-# for light in cycle:
+# i = 0
+# while i < len(cycle):
+#     light = cycle[i]
 #     if light == "red":
 #         print(f"{light:6} → STOP")
 #     elif light == "yellow":
 #         print(f"{light:6} → SLOW DOWN")
 #     else:
 #         print(f"{light:6} → GO")
+#     i = i + 1
 
 
-# ── Step 6: Count green lights using a while-loop with break ─────────────────
+# ── Step 6: Count green lights using a while True loop with break ────────────
 # Pretend you are driving and want to count how many GREEN lights in a row you
 # pass before the FIRST non-green one. Use a while True loop with break.
 

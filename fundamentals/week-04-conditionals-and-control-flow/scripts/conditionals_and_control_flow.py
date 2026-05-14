@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Week 04 — Conditionals and Control Flow
 
-Run this script to learn how programs make decisions and repeat work:
-boolean values, comparisons, if/elif/else, while/break/continue, and for/range.
+Run this script to learn how programs make DECISIONS and how they REPEAT work:
+boolean values, comparisons, if/elif/else, and while loops.
 
     python fundamentals/week-04-conditionals-and-control-flow/scripts/conditionals_and_control_flow.py
+
+> `for` loops are introduced next week (Week 5) — paired with lists.
 """
 
 
@@ -235,73 +237,44 @@ while True:
 
 # ── continue — skip the rest of THIS iteration ───────────────────────────────
 # `continue` jumps back to the top of the loop, skipping the remaining lines
-# of the current iteration. Use it to "skip" over items you don't want to handle.
+# of the current iteration. Use it to skip over situations you don't want to
+# handle.
 
 print("\n=== continue ===")
 
-numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-for n in numbers:
+# Print only the EVEN numbers from 1 up to 8, using while + continue.
+n = 0
+while n < 8:
+    n = n + 1
     if n % 2 == 1:        # odd → skip
         continue
     print(f"  even number: {n}")
 
 
-# ── for loops with range() ───────────────────────────────────────────────────
-# Use a `for` loop when you know HOW MANY times to repeat.
-#
-#   range(stop)              0, 1, 2, ..., stop-1
-#   range(start, stop)       start, start+1, ..., stop-1
-#   range(start, stop, step) start, start+step, ... (up to but not including stop)
-#
-# The variable after `for` (here `i`) takes each value in turn.
+# ── Putting it together — a tiny number game ─────────────────────────────────
+# Combine almost every feature from this week: a while True loop, an if/elif
+# chain, comparisons, boolean operators, and a break to exit cleanly.
 
-print("\n=== for + range() ===")
+print("\n=== Putting it together — guess the secret ===")
 
-for i in range(5):
-    print(f"  i = {i}")
+secret        = 7
+max_attempts  = 4
+demo_guesses  = [3, 10, 7]    # pretending the user types these
 
-print("  ---")
+attempt = 0
+while True:
+    guess = demo_guesses[attempt]
+    attempt = attempt + 1
+    print(f"  attempt {attempt}: guess = {guess}")
 
-for i in range(2, 6):           # 2, 3, 4, 5
-    print(f"  i = {i}")
-
-print("  ---")
-
-for i in range(0, 20, 5):       # 0, 5, 10, 15
-    print(f"  i = {i}")
-
-print("  ---")
-
-# range() also runs backwards with a negative step:
-for i in range(5, 0, -1):       # 5, 4, 3, 2, 1
-    print(f"  count = {i}")
-
-
-# ── Putting it together — what should I wear today? ──────────────────────────
-# A tiny decision tree using nearly every feature from this week.
-# We loop over a forecast for the week and print a clothing tip per day.
-
-print("\n=== Putting it together — weekly outfit advice ===")
-
-forecast = [
-    ("Mon",  6, True),     # day, °C, raining?
-    ("Tue", 14, False),
-    ("Wed",  9, True),
-    ("Thu", 22, False),
-    ("Fri", 28, False),
-    ("Sat", 18, True),
-    ("Sun", 12, False),
-]
-
-for day, temp_c, raining in forecast:
-    if temp_c >= 25:
-        tip = "T-shirt + sunscreen"
-    elif temp_c >= 15 and not raining:
-        tip = "Light jacket"
-    elif raining and temp_c < 15:
-        tip = "Coat + umbrella"
-    elif raining:
-        tip = "Umbrella"
+    if guess == secret:
+        print(f"  ✓ correct in {attempt} attempts!")
+        break
+    elif guess < secret:
+        print("    too low")
     else:
-        tip = "Warm sweater"
-    print(f"  {day}: {temp_c:>2}°C, rain={raining!s:<5} → {tip}")
+        print("    too high")
+
+    if attempt >= max_attempts:
+        print(f"  ✗ out of tries — the secret was {secret}")
+        break

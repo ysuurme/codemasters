@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Week 05 — Functions
+"""Week 06 — Functions
 
 Run this script to learn how to define your own functions: parameters,
-return values, None, keyword arguments, scope, and try/except.
+return values, None, and keyword arguments.
 
 The capstone is a small Guess-the-number game that uses input().
 Run it in a TERMINAL (not the Marimo notebook) so you can actually type:
 
-    python fundamentals/week-05-functions/scripts/functions.py
+    python fundamentals/week-06-functions/scripts/functions.py
 """
 
 import random
@@ -147,6 +147,19 @@ print("cats", "dogs", "mice", sep=", ")   # cats, dogs, mice
 print("2026", "05", "14", sep="-")        # 2026-05-14
 
 
+# ── Default argument values ──────────────────────────────────────────────────
+# Give a parameter a DEFAULT VALUE in the `def` line. The caller can then
+# leave it out and Python uses the default automatically.
+
+print("\n=== Default arguments ===")
+
+def greet_friendly(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet_friendly("Alice")                       # uses the default "Hello"
+greet_friendly("Bob", greeting="Howdy")       # overrides the default
+
+
 # ── Local vs global scope ────────────────────────────────────────────────────
 # A SCOPE is a container for variables.
 #   • Variables defined OUTSIDE any function → GLOBAL scope (one per program).
@@ -156,7 +169,9 @@ print("2026", "05", "14", sep="-")        # 2026-05-14
 #   1. Code inside a function CAN read global variables.
 #   2. Code outside a function CANNOT read a function's local variables.
 #   3. Each function call has its OWN local scope — gone when the function ends.
-#   4. Using the same name in different scopes works, but is confusing.
+#
+# If a function needs to CHANGE something, prefer to take it as an argument
+# and `return` the new value, rather than reaching outside.
 
 print("\n=== Scope ===")
 
@@ -174,60 +189,13 @@ show_receipt("sandwich", 6.50)
 # print(tax)   ← would raise NameError: name 'tax' is not defined
 
 
-# ── The global statement ─────────────────────────────────────────────────────
-# Normally, assigning to a name INSIDE a function creates a LOCAL variable —
-# even if a global with the same name already exists. The `global` keyword
-# tells Python "no, use the global one".
-#
-# Use `global` sparingly. Most of the time it's cleaner to take an argument
-# and return a value, like add() did above.
-
-print("\n=== The global statement ===")
-
-counter = 0
-
-def increment_counter():
-    global counter                       # use the global `counter`, don't shadow it
-    counter = counter + 1
-
-increment_counter()
-increment_counter()
-increment_counter()
-print(f"counter after 3 calls : {counter}")
-
-
-# ── try / except — handling errors without crashing ──────────────────────────
-# When something goes wrong (dividing by zero, converting "abc" to int, …)
-# Python normally STOPS the program with an error.
-#
-# Wrap risky code in `try:` and react to specific errors in `except`.
-# The program keeps running — much friendlier for the user.
-
-print("\n=== try / except ===")
-
-def safe_divide(top, bottom):
-    try:
-        return top / bottom
-    except ZeroDivisionError:
-        return "cannot divide by zero"
-
-print(f"42 / 2 = {safe_divide(42, 2)}")
-print(f"42 / 0 = {safe_divide(42, 0)}")
-print(f"42 / 7 = {safe_divide(42, 7)}")
-
-# Another common one: int() crashes on non-numeric text.
-raw = "42 bananas"
-try:
-    number = int(raw)
-    print(f"converted : {number}")
-except ValueError:
-    print(f"'{raw}' is not a whole number — using 0 instead")
-
-
 # ── Putting it together — Guess the number ──────────────────────────────────
 # The computer picks a number 1–20; you have 6 tries. Each guess is too
-# high / too low / correct. We use functions, return values, scope, and
-# try/except all in one tiny game.
+# high / too low / correct. We use functions, parameters, return values,
+# and scope all in one tiny game.
+#
+# Note: if you type something that isn't a number, the program will crash.
+# In Week 9 you'll learn how to handle that gracefully with try / except.
 
 print("\n=== Guess the number ===")
 
@@ -236,13 +204,9 @@ LOW         = 1
 HIGH        = 20
 
 def ask_for_guess():
-    """Ask the player for a whole number, re-asking on bad input."""
-    while True:
-        raw = input(f"Take a guess ({LOW}-{HIGH}): ")
-        try:
-            return int(raw)
-        except ValueError:
-            print(f"  '{raw}' is not a whole number — try again.")
+    """Ask the player for a whole number between LOW and HIGH."""
+    raw = input(f"Take a guess ({LOW}-{HIGH}): ")
+    return int(raw)
 
 def play_guessing_game():
     secret = random.randint(LOW, HIGH)
