@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Assignment — Grocery Prices
 
-Build a tiny price-list program that uses dictionaries together with
-built-in functions, methods, map, filter, and lambda.
+Build a tiny price-list program using a DICTIONARY together with `for`
+loops and the functions you wrote last week.
 
 Work through the steps one by one — uncomment each block, run the script,
 and check the output before moving on.
 
 Run with:
-    python "fundamentals/week-06-advanced functions/assignments/grocery_prices.py"
+    python fundamentals/week-07-dictionaries/assignments/grocery_prices.py
 """
 
 
@@ -57,23 +57,31 @@ groceries = {}   # ← replace with your own items and prices
 # print(f"After delete : {groceries}")
 
 
-# ── Step 5: filter() + lambda — items under a budget ─────────────────────────
-# Use filter() with a lambda to keep only the (name, price) pairs where the
-# price is at most 2.00 euro. Hint: filter over groceries.items().
-# Print the result as a list of pairs.
+# ── Step 5: Filter with a for-loop — items under a budget ────────────────────
+# Walk the dictionary with `.items()` and build a NEW dict that contains
+# only the (name, price) pairs where the price is at most 2.00 euro.
+# Print the result.
 
-# affordable = list(filter(lambda pair: pair[1] <= 2.00, groceries.items()))
+# affordable = {}
+# for name, price in groceries.items():
+#     if price <= 2.00:
+#         affordable[name] = price
 # print(f"Under €2.00 : {affordable}")
 
 
-# ── Step 6: map() + lambda — apply a 10% discount ────────────────────────────
-# Use map() with a lambda to make a NEW list of discounted prices
-# (each price multiplied by 0.9). Print the original and discounted lists.
+# ── Step 6: Apply a 10 % discount with a function ────────────────────────────
+# Write a small function `discount(price, percentage=0.10)` that returns the
+# discounted price (rounded to 2 decimals). Then use a for-loop to build a
+# NEW dict where every price has the discount applied.
 
-# prices            = list(groceries.values())
-# discounted_prices = list(map(lambda p: round(p * 0.9, 2), prices))
-# print(f"Original    : {prices}")
-# print(f"-10% prices : {discounted_prices}")
+# def discount(price, percentage=0.10):
+#     return round(price * (1 - percentage), 2)
+#
+# discounted = {}
+# for name, price in groceries.items():
+#     discounted[name] = discount(price)
+# print(f"Original   : {groceries}")
+# print(f"-10%       : {discounted}")
 
 
 # ── Step 7: Console input — look up an item ──────────────────────────────────
@@ -86,3 +94,19 @@ groceries = {}   # ← replace with your own items and prices
 #     print(f"{query} costs €{groceries[query]:.2f}")
 # else:
 #     print(f"Sorry, '{query}' is not in the list.")
+
+
+# ── Step 8 (bonus): Count items by price band ────────────────────────────────
+# Walk the dictionary and use a small counter dict to track how many items
+# fall into each band: "cheap" (< €1.50), "medium" (€1.50–€3.00), and
+# "expensive" (> €3.00). Print the counts.
+
+# bands = {"cheap": 0, "medium": 0, "expensive": 0}
+# for price in groceries.values():
+#     if price < 1.50:
+#         bands["cheap"] = bands["cheap"] + 1
+#     elif price <= 3.00:
+#         bands["medium"] = bands["medium"] + 1
+#     else:
+#         bands["expensive"] = bands["expensive"] + 1
+# print(bands)
